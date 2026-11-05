@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91影院入口-91影院入口在线观看_91影院首页导航与片库分类</title>
+<meta name="description" content="91影院入口首页导航，整理91影院入口的访问方式、片库分类、观看说明与常见问题，帮助用户快速找到可用的91影院入口页面与内容分区。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314110f'/%3E%3Cpath d='M24 18l24 14-24 14z' fill='%23f0b429'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0f0d0c;
+    --bg-2:#171412;
+    --card:#1d1917;
+    --line:#2e2825;
+    --text:#f2ece7;
+    --muted:#a99e96;
+    --gold:#f0b429;
+    --gold-soft:#3a2f16;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(15,13,12,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-in{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;min-height:64px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.5px;white-space:nowrap}
+  .brand .mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(140deg,#f0b429,#b97f10);
+    display:grid;place-items:center;flex:0 0 auto;
+  }
+  .brand .mark svg{width:16px;height:16px}
+  nav.top{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+  nav.top a{
+    font-size:14px;color:var(--muted);padding:7px 11px;border-radius:8px;
+    transition:color .2s,background .2s;
+  }
+  nav.top a:hover{color:var(--text);background:var(--bg-2)}
+  .btn-entry{
+    font-size:14px;font-weight:600;color:#1a1206;
+    background:var(--gold);padding:8px 16px;border-radius:9px;
+    white-space:nowrap;transition:filter .2s;
+  }
+  .btn-entry:hover{filter:brightness(1.08)}
+
+  /* Hero */
+  .hero{
+    position:relative;overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(900px 380px at 82% -10%,rgba(240,180,41,.13),transparent 70%),
+      radial-gradient(600px 300px at 8% 110%,rgba(240,180,41,.06),transparent 70%),
+      var(--bg-2);
+  }
+  .hero-in{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+    padding:64px 0 60px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;letter-spacing:1px;color:var(--gold);
+    border:1px solid var(--gold-soft);background:rgba(240,180,41,.07);
+    padding:4px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  h1{
+    font-size:clamp(30px,4.6vw,46px);
+    line-height:1.28;font-weight:800;letter-spacing:.5px;
+  }
+  h1 .hl{color:var(--gold)}
+  .lede{
+    margin-top:18px;color:var(--muted);font-size:15.5px;max-width:38em;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .cta{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:15px;font-weight:600;padding:12px 24px;border-radius:10px;
+    background:var(--gold);color:#1a1206;transition:filter .2s,transform .2s;
+  }
+  .cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .cta.ghost{
+    background:transparent;color:var(--text);border:1px solid var(--line);
+  }
+  .cta.ghost:hover{border-color:var(--gold);color:var(--gold);transform:none}
+  .hero-stats{
+    display:flex;gap:28px;margin-top:32px;padding-top:24px;
+    border-top:1px solid var(--line);flex-wrap:wrap;
+  }
+  .stat b{display:block;font-size:20px;color:var(--gold);font-weight:700;line-height:1.3}
+  .stat span{font-size:12.5px;color:var(--muted)}
+
+  .hero-art{
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    background:linear-gradient(160deg,#211c18,#141110);
+    box-shadow:0 24px 60px -30px rgba(0,0,0,.9);
+  }
+  .hero-art .screen{
+    aspect-ratio:16/9;position:relative;
+    background:
+      repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 22px),
+      linear-gradient(150deg,#241d16,#120f0d);
+    display:grid;place-items:center;
+  }
+  .screen .play{
+    width:66px;height:66px;border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:grid;place-items:center;
+    background:rgba(240,180,41,.08);
+  }
+  .screen .play svg{width:22px;height:22px;margin-left:3px}
+  .hero-art .bar{padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;color:var(--muted)}
+  .tag{font-size:11.5px;color:var(--gold);border:1px solid var(--gold-soft);border-radius:6px;padding:1px 8px}
+
+  /* Sections */
+  section{padding:60px 0}
+  .sec-head{max-width:640px;margin-bottom:34px}
+  .sec-label{font-size:12.5px;letter-spacing:2px;color:var(--gold);margin-bottom:10px}
+  h2{font-size:clamp(21px,2.6vw,27px);font-weight:700;letter-spacing:.3px;line-height:1.4}
+  .sec-head p{color:var(--muted);font-size:15px;margin-top:12px}
+
+  /* Entry cards */
+  .entries{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .e-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 22px;transition:border-color .2s,transform .2s;
+  }
+  .e-card:hover{border-color:#4a3d1c;transform:translateY(-2px)}
+  .e-ico{
+    width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+    background:rgba(240,180,41,.1);border:1px solid var(--gold-soft);margin-bottom:16px;
+  }
+  .e-ico svg{width:18px;height:18px}
+  .e-card h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
+  .e-card p{font-size:14px;color:var(--muted)}
+  .e-card .go{display:inline-block;margin-top:14px;font-size:13.5px;color:var(--gold);font-weight:600}
+
+  /* Library */
+  .library{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+  .chip{
+    font-size:13.5px;padding:6px 15px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line);background:transparent;color:var(--muted);
+    transition:all .2s;font-family:inherit;
+  }
+  .chip:hover{color:var(--text);border-color:#4a3d1c}
+  .chip.active{background:var(--gold);color:#1a1206;border-color:var(--gold);font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .p-card{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;transition:border-color .2s;
+  }
+  .p-card:hover{border-color:#4a3d1c}
+  .p-thumb{
+    aspect-ratio:16/10;display:grid;place-items:center;
+    background:linear-gradient(150deg,#26201a,#161311);
+    border-bottom:1px solid var(--line);
+  }
+  .p-thumb svg{width:26px;height:26px;opacity:.5}
+  .p-body{padding:14px 15px 16px}
+  .p-body h3{font-size:14.5px;font-weight:600;line-height:1.5}
+  .p-meta{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:12px;color:var(--muted)}
+  .p-meta .c{color:var(--gold)}
+  .empty-note{display:none;color:var(--muted);font-size:14px;padding:28px 0;text-align:center;border:1px dashed var(--line);border-radius:12px}
+
+  /* Guide */
+  .guide{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  .steps{list-style:none;counter-reset:s}
+  .steps li{
+    position:relative;padding:0 0 26px 52px;counter-increment:s;
+  }
+  .steps li::before{
+    content:counter(s,decimal-leading-zero);
+    position:absolute;left:0;top:0;
+    width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+    font-size:13px;font-weight:700;color:var(--gold);
+    background:rgba(240,180,41,.08);border:1px solid var(--gold-soft);
+  }
+  .steps li:not(:last-child)::after{
+    content:"";position:absolute;left:16.5px;top:38px;bottom:2px;width:1px;background:var(--line);
+  }
+  .steps h3{font-size:15.5px;font-weight:700;margin-bottom:6px}
+  .steps p{font-size:14px;color:var(--muted)}
+  .side-box{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;
+  }
+  .side-box h3{font-size:16px;font-weight:700;margin-bottom:14px}
+  .side-box ul{list-style:none;font-size:14px;color:var(--muted)}
+  .side-box li{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px}
+  .side-box li:last-child{border-bottom:0}
+  .side-box li::before{content:"·";color:var(--gold);font-weight:700}
+
+  /* FAQ */
+  .faq{border-top:1px solid var(--line);background:var(--bg-2)}
+  .faq-list{display:grid;gap:12px;max-width:820px}
+  details{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:0 20px;transition:border-color .2s;
+  }
+  details[open]{border-color:#4a3d1c}
+  summary{
+    cursor:pointer;list-style:none;font-size:15px;font-weight:600;
+    padding:16px 0;display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--gold);font-size:19px;font-weight:400;line-height:1}
+  details[open] summary::after{content:"−"}
+  details p{font-size:14px;color:var(--muted);padding:0 0 18px}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:40px 0 34px;background:var(--bg)}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .foot-brand{max-width:340px}
+  .foot-brand .brand{font-size:16px;margin-bottom:12px}
+  .foot-brand p{font-size:13px;color:var(--muted)}
+  .foot-links{display:flex;gap:48px;flex-wrap:wrap}
+  .foot-col h4{font-size:13px;color:var(--gold);margin-bottom:12px;letter-spacing:.5px}
+  .foot-col a{display:block;font-size:13.5px;color:var(--muted);padding:4px 0}
+  .foot-col a:hover{color:var(--text)}
+  .foot-bottom{
+    margin-top:32px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:12.5px;color:#7d736c;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+
+  @media (max-width:900px){
+    .hero-in{grid-template-columns:1fr;gap:34px;padding:46px 0 44px}
+    .hero-art{order:-1;max-width:460px}
+    .entries{grid-template-columns:1fr 1fr}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .guide{grid-template-columns:1fr;gap:30px}
+  }
+  @media (max-width:640px){
+    .head-in{flex-wrap:wrap;padding:10px 0;gap:10px}
+    nav.top{order:3;width:100%;justify-content:flex-start;overflow-x:auto;padding-bottom:2px}
+    nav.top a{padding:6px 8px;font-size:13px}
+    .brand{font-size:15px}
+    .btn-entry{padding:7px 13px;font-size:13px}
+    section{padding:44px 0}
+    .entries,.grid{grid-template-columns:1fr}
+    .hero-stats{gap:20px}
+    .foot-links{gap:32px}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="91影院入口 首页">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7z" fill="#1a1206"/></svg>
+      </span>
+      <span>91影院入口</span>
+    </a>
+    <nav class="top" aria-label="主导航">
+      <a href="#entry">入口导航</a>
+      <a href="#library">片库分类</a>
+      <a href="#guide">观看说明</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="btn-entry" href="#entry">进入首页</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>影音导航 · 首页入口</span>
+        <h1>91影院入口</h1>
+        <p class="lede">91影院入口 是一个以影片浏览与在线观看为核心的导航首页。本页整理入口位置、片库分类与观看前的准备事项，让你从打开页面到选片播放的路径更短、更清楚。</p>
+        <div class="hero-actions">
+          <a class="cta" href="#entry">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>
+            立即进入导航
+          </a>
+          <a class="cta ghost" href="#library">浏览片库分类</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>4</b><span>主要片库分区</span></div>
+          <div class="stat"><b>6</b><span>入口方式说明</span></div>
+          <div class="stat"><b>3</b><span>步完成选片</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="screen">
+          <span class="play">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7z" fill="#f0b429"/></svg>
+          </span>
+        </div>
+        <div class="bar">
+          <span>首页 · 推荐位</span>
+          <span class="tag">导航页</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entry -->
+  <section id="entry">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">入口导航</div>
+        <h2>91影院入口 的三种进入方式</h2>
+        <p>入口按使用场景区分：直接访问、从导航页跳转、以及保存后再次打开。每种方式对应不同的操作习惯，可按自身情况选择。</p>
+      </div>
+      <div class="entries">
+        <article class="e-card">
+          <div class="e-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="1.8"><path d="M4 12h16M12 4v16" stroke-linecap="round"/></svg></div>
+          <h3>直接访问首页</h3>
+          <p>在浏览器地址栏输入或粘贴 91影院入口 的页面地址，回车即可进入首页，适合日常固定使用。</p>
+          <a class="go" href="#guide">查看地址填写说明 →</a>
+        </article>
+        <article class="e-card">
+          <div class="e-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></div>
+          <h3>导航页跳转</h3>
+          <p>从影音导航站点点击对应的 91影院入口 链接进入，可在同一页面比较多个入口是否可用。</p>
+          <a class="go" href="#library">查看片库分区 →</a>
+        </article>
+        <article class="e-card">
+          <div class="e-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="1.8"><path d="M6 4h12v16l-6-4-6 4z" stroke-linejoin="round"/></svg></div>
+          <h3>保存后再次打开</h3>
+          <p>将 91影院入口 首页加入浏览器收藏夹，下次从收藏栏直接打开，减少重复查找的步骤。</p>
+          <a class="go" href="#faq">收藏相关问题 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Library -->
+  <section class="library" id="library">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">片库分类</div>
+        <h2>进入 91影院入口 后如何选片</h2>
+        <p>首页片库通常按内容类型分区。以下为常见分类方式，点击筛选可查看每个分区适合的观看场景与选择建议。</p>
+      </div>
+      <div class="filters" role="group" aria-label="片库筛选">
+        <button class="chip active" data-filter="all" type="button">全部</button>
+        <button class="chip" data-filter="movie" type="button">电影</button>
+        <button class="chip" data-filter="series" type="button">剧集</button>
+        <button class="chip" data-filter="short" type="button">短片</button>
+        <button class="chip" data-filter="doc" type="button">纪录</button>
+      </div>
+      <div class="grid" id="grid">
+        <article class="p-card" data-cat="movie">
+          <div class="p-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div>
+          <div class="p-body">
+            <h3>长篇电影分区</h3>
+            <div class="p-meta"><span class="c">电影</span><span>约 90–150 分钟</span></div>
+          </div>
+        </article>
+        <article class="p-card" data-cat="series">
+          <div class="p-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+          <div class="p-body">
+            <h3>连续剧集分区</h3>
+            <div class="p-meta"><span class="c">剧集</span><span>按集更新</span></div>
+          </div>
+        </article>
+        <article class="p-card" data-cat="short">
+          <div class="p-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <div class="p-body">
+            <h3>短片段分区</h3>
+            <div class="p-meta"><span class="c">短片</span><span>约 1–20 分钟</span></div>
+          </div>
+        </article>
+        <article class="p-card" data-cat="doc">
+          <div class="p-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="1.5"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <div class="p-body">
+            <h3>纪录片分区</h3>
+            <div class="p-meta"><span class="c">纪录</span><span>单集或系列</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-note" id="emptyNote">当前筛选下暂无更多条目，可切换回“全部”继续浏览。</p>
+    </div>
+  </section>
+
+  <!-- Guide -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">观看说明</div>
+        <h2>从 91影院入口 到开始播放</h2>
+        <p>把进入首页、找到分区、选择影片三步分开看，可以减少在页面之间反复跳转的时间。</p>
+      </div>
+      <div class="guide">
+        <ol class="steps">
+          <li>
+            <h3>确认入口可用</h3>
+            <p>打开 91影院入口 后，先看首页是否正常加载出分类与推荐内容，能正常显示即说明当前入口可用。</p>
+          </li>
+          <li>
+            <h3>按类型缩小范围</h3>
+            <p>在片库分区中先选大类，再按更新或热度查看列表，避免在首页一次性浏览过多条目。</p>
+          </li>
+          <li>
+            <h3>播放前检查网络</h3>
+            <p>在线观看对网络稳定性有要求，建议使用固定带宽环境，并在播放前关闭占用流量的后台程序。</p>
+          </li>
+        </ol>
+        <aside class="side-box">
+          <h3>使用前须知</h3>
+          <ul>
+            <li>91影院入口 仅提供页面导航与内容分区说明，不存储影片文件。</li>
+            <li>页面内容与可用状态可能随时间变化，以实际打开结果为准。</li>
+            <li>建议使用主流浏览器较新版本访问，以获得完整布局。</li>
+            <li>观看时请遵守当地法律法规与平台使用条款。</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-label">常见问题</div>
+        <h2>关于 91影院入口 的常见疑问</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>91影院入口 打不开怎么办？</summary>
+          <p>先刷新页面并更换网络环境重试；若仍无法打开，可回到导航页重新选择其他列出的入口链接。入口可用状态会变化，以实际访问结果为准。</p>
+        </details>
+        <details>
+          <summary>进入首页后需要注册吗？</summary>
+          <p>首页浏览与分类查看通常无需额外操作即可进行。若页面提示登录，按其自身说明处理；本页不提供账号相关服务。</p>
+        </details>
+        <details>
+          <summary>手机上能正常使用 91影院入口 吗？</summary>
+          <p>可以。页面采用自适应布局，导航、筛选与卡片在手机屏幕上会重新排列，建议竖屏浏览并按需横向滑动导航栏。</p>
+        </details>
+        <details>
+          <summary>片库内容多久更新一次？</summary>
+          <p>更新节奏由站点自身安排，本页不承诺固定周期。可在首页分区中查看最新列表，以页面实际展示内容为准。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7z" fill="#1a1206"/></svg>
+          </span>
+          <span>91影院入口</span>
+        </div>
+        <p>91影院入口 首页导航与片库分类说明，帮助访问者快速定位入口，了解选片与观看的基本流程。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>页面导航</h4>
+          <a href="#entry">入口导航</a>
+          <a href="#library">片库分类</a>
+          <a href="#guide">观看说明</a>
+          <a href="#faq">常见问题</a>
+        </div>
+        <div class="foot-col">
+          <h4>快速入口</h4>
+          <a href="#entry">进入首页</a>
+          <a href="#library">浏览分区</a>
+          <a href="#top">返回顶部</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 91影院入口 · 导航首页</span>
+      <span>内容以实际访问结果为准，请遵守当地法律法规。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var chips = document.querySelectorAll('.chip');
+    var cards = document.querySelectorAll('#grid .p-card');
+    var note = document.getElementById('emptyNote');
+    chips.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        chips.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        var shown = 0;
+        cards.forEach(function(c){
+          var ok = (f === 'all' || c.getAttribute('data-cat') === f);
+          c.style.display = ok ? '' : 'none';
+          if(ok) shown++;
+        });
+        note.style.display = shown === 0 ? 'block' : 'none';
+      });
+    });
+  })();
+</script>
+</body>
+</html>
