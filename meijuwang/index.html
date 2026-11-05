@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美剧网-美剧在线观看_美剧排行榜_追剧指南_美剧资源导航</title>
+<meta name="description" content="美剧网是为美剧爱好者整理的美剧信息与追剧导航首页，提供美剧在线观看入口、美剧排行榜、新剧上映动态与追剧指南，帮助你快速找到想看的美剧资源与观看方向。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Crect x='12' y='18' width='40' height='28' rx='5' fill='none' stroke='%23f5b83d' stroke-width='3'/%3E%3Cpath d='M28 26l10 6-10 6z' fill='%23f5b83d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0d1117;
+  --bg-soft:#141b24;
+  --card:#19222e;
+  --line:#26313f;
+  --text:#e8edf3;
+  --muted:#9aa8b8;
+  --gold:#f5b83d;
+  --gold-soft:rgba(245,184,61,.12);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 22px;}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(13,17,23,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;height:66px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--gold-soft);
+  display:grid;place-items:center;
+  border:1px solid rgba(245,184,61,.35);
+}
+.logo-text{font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--text);}
+.logo-text em{font-style:normal;color:var(--gold);}
+.nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.nav a{
+  font-size:14.5px;color:var(--muted);
+  padding:7px 12px;border-radius:8px;
+  transition:.2s;
+}
+.nav a:hover,.nav a:focus-visible{color:var(--gold);background:rgba(255,255,255,.04);outline:none;}
+.nav .nav-cta{
+  color:#1a1305;background:var(--gold);
+  font-weight:600;padding:8px 16px;
+}
+.nav .nav-cta:hover{background:#ffc957;color:#1a1305;}
+
+/* hero */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 420px at 85% -10%,rgba(245,184,61,.16),transparent 60%),
+    radial-gradient(700px 380px at 5% 110%,rgba(88,140,255,.12),transparent 65%),
+    var(--bg-soft);
+}
+.hero-inner{
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:44px;align-items:center;
+  padding:64px 0 58px;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--gold);
+  background:var(--gold-soft);
+  border:1px solid rgba(245,184,61,.3);
+  padding:5px 12px;border-radius:99px;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(30px,4.4vw,46px);
+  line-height:1.22;font-weight:800;
+  letter-spacing:.5px;margin-bottom:16px;
+}
+.hero h1 span{color:var(--gold);}
+.hero-lead{
+  font-size:16.5px;color:var(--muted);
+  max-width:34em;margin-bottom:26px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:10px;
+  font-size:15px;font-weight:600;transition:.2s;
+  border:1px solid transparent;
+}
+.btn-primary{background:var(--gold);color:#1a1305;}
+.btn-primary:hover{background:#ffc957;}
+.btn-ghost{
+  border-color:var(--line);color:var(--text);
+  background:rgba(255,255,255,.03);
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{
+  display:flex;gap:30px;margin-top:34px;flex-wrap:wrap;
+}
+.hero-stats div strong{display:block;font-size:22px;color:var(--gold);font-weight:800;}
+.hero-stats div span{font-size:13px;color:var(--muted);}
+
+/* hero art */
+.hero-art{
+  position:relative;
+  background:linear-gradient(160deg,#1b2534,#121a24);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+.art-screen{
+  border-radius:12px;overflow:hidden;
+  background:#0b0f15;border:1px solid #2a3646;
+}
+.art-caption{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:14px;font-size:12.5px;color:var(--muted);
+}
+.art-caption b{color:var(--gold);font-weight:600;}
+.art-badge{
+  position:absolute;top:-12px;right:14px;
+  background:var(--gold);color:#1a1305;
+  font-size:12px;font-weight:700;
+  padding:4px 12px;border-radius:99px;
+  box-shadow:0 6px 18px rgba(245,184,61,.35);
+}
+
+/* sections */
+.section{padding:58px 0;}
+.section-alt{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.section-head{margin-bottom:30px;max-width:640px;}
+.section-head .kicker{
+  font-size:13px;color:var(--gold);font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;
+}
+.section-head h2{
+  font-size:clamp(22px,2.8vw,28px);
+  font-weight:800;line-height:1.35;margin-bottom:10px;
+}
+.section-head p{color:var(--muted);font-size:15px;}
+
+/* ranking */
+.rank-list{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.rank-item{
+  display:flex;gap:16px;align-items:flex-start;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  transition:.2s;
+}
+.rank-item:hover{border-color:rgba(245,184,61,.45);transform:translateY(-2px);}
+.rank-no{
+  font-size:20px;font-weight:800;color:var(--gold);
+  font-variant-numeric:tabular-nums;
+  min-width:34px;line-height:1.4;
+}
+.rank-body h3{font-size:16.5px;font-weight:700;margin-bottom:4px;}
+.rank-body p{font-size:13.5px;color:var(--muted);line-height:1.65;}
+.rank-meta{
+  display:inline-block;margin-top:8px;
+  font-size:12px;color:var(--gold);
+  background:var(--gold-soft);border-radius:6px;
+  padding:2px 8px;
+}
+
+/* cards */
+.card-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  display:flex;flex-direction:column;
+  transition:.2s;
+}
+.card:hover{border-color:rgba(245,184,61,.4);transform:translateY(-3px);}
+.card-icon{
+  width:42px;height:42px;border-radius:11px;
+  background:var(--gold-soft);
+  display:grid;place-items:center;margin-bottom:14px;
+  border:1px solid rgba(245,184,61,.25);
+}
+.card h3{font-size:17px;font-weight:700;margin-bottom:8px;}
+.card p{font-size:14px;color:var(--muted);flex:1;}
+.card-link{
+  margin-top:16px;font-size:13.5px;color:var(--gold);font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.card-link:hover{text-decoration:underline;}
+
+/* guide / article */
+.guide{
+  display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;
+}
+.guide-text h2{font-size:24px;font-weight:800;margin-bottom:14px;}
+.guide-text p{color:var(--muted);font-size:15px;margin-bottom:14px;}
+.guide-text p strong{color:var(--text);font-weight:600;}
+.steps{display:flex;flex-direction:column;gap:14px;}
+.step{
+  display:flex;gap:14px;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:16px 18px;
+}
+.step .n{
+  flex-shrink:0;width:28px;height:28px;border-radius:8px;
+  background:var(--gold);color:#1a1305;
+  font-weight:800;font-size:14px;
+  display:grid;place-items:center;
+}
+.step h4{font-size:15px;font-weight:700;margin-bottom:3px;}
+.step p{font-size:13.5px;color:var(--muted);}
+
+/* download */
+.download-panel{
+  background:linear-gradient(135deg,#1d2735,#141c26);
+  border:1px solid rgba(245,184,61,.28);
+  border-radius:18px;
+  padding:34px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:26px;flex-wrap:wrap;
+}
+.download-panel h2{font-size:22px;font-weight:800;margin-bottom:8px;}
+.download-panel p{color:var(--muted);font-size:14.5px;max-width:46ch;}
+.dl-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold);color:#1a1305;
+  font-weight:700;font-size:15px;
+  padding:12px 24px;border-radius:10px;
+  pointer-events:none;opacity:.95;
+}
+.dl-note{font-size:12.5px;color:var(--muted);margin-top:8px;}
+
+/* faq */
+.faq{display:grid;gap:12px;}
+.faq details{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:16px 20px;
+}
+.faq summary{
+  cursor:pointer;font-weight:600;font-size:15.5px;
+  list-style:none;display:flex;justify-content:space-between;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--gold);font-weight:700;font-size:18px;line-height:1;}
+.faq details[open] summary::after{content:"–";}
+.faq p{margin-top:10px;font-size:14px;color:var(--muted);}
+
+/* footer */
+.site-footer{
+  border-top:1px solid var(--line);
+  background:#0a0e13;
+  padding:38px 0 30px;
+  margin-top:10px;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.footer-brand{max-width:420px;}
+.footer-brand .logo-text{font-size:17px;margin-bottom:10px;display:block;}
+.footer-brand p{font-size:13.5px;color:var(--muted);}
+.footer-links{display:flex;gap:44px;flex-wrap:wrap;}
+.footer-col h5{font-size:13px;color:var(--gold);margin-bottom:10px;font-weight:700;letter-spacing:1px;}
+.footer-col a{display:block;font-size:13.5px;color:var(--muted);padding:3px 0;}
+.footer-col a:hover{color:var(--text);}
+.copyright{
+  margin-top:28px;padding-top:18px;
+  border-top:1px solid var(--line);
+  font-size:12.5px;color:#6d7a8a;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:44px 0 40px;gap:32px;}
+  .hero-art{order:2;}
+  .card-grid{grid-template-columns:1fr 1fr;}
+  .guide{grid-template-columns:1fr;}
+}
+@media (max-width:680px){
+  .header-inner{height:auto;padding:12px 0;flex-direction:column;align-items:flex-start;gap:10px;}
+  .nav{gap:2px;}
+  .nav a{padding:6px 9px;font-size:13.5px;}
+  .rank-list{grid-template-columns:1fr;}
+  .card-grid{grid-template-columns:1fr;}
+  .section{padding:42px 0;}
+  .download-panel{padding:24px;}
+  .hero-stats{gap:22px;}
+  .footer-links{gap:26px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="美剧网首页">
+      <span class="logo-mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="14" rx="3" stroke="#f5b83d" stroke-width="1.8"/>
+          <path d="M10 8.5l5.5 3.2L10 14.9z" fill="#f5b83d"/>
+          <path d="M8 21h8" stroke="#f5b83d" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="logo-text">美剧网</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#ranking">美剧排行榜</a>
+      <a href="#catalog">追剧导航</a>
+      <a href="#guide">观看指南</a>
+      <a href="#download">资源下载</a>
+      <a href="#faq">常见问题</a>
+      <a class="nav-cta" href="#ranking">开始追剧</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="hero-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="#f5b83d"/></svg>
+          美剧资讯与追剧入口
+        </span>
+        <h1>美剧网</h1>
+        <p class="hero-lead">美剧网把美剧的观看入口、排行榜与追剧信息集中到一处：先看榜单挑选剧集，再按类型与更新节奏定位资源，最后用一份清晰的追剧清单安排每周的观剧时间。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#ranking">
+            查看美剧排行榜
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h9M7.5 3.5L11 7l-3.5 3.5" stroke="#1a1305" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#catalog">按类型找剧</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4</strong><span>精选榜单方向</span></div>
+          <div><strong>6</strong><span>常见剧集类型</span></div>
+          <div><strong>7</strong><span>追剧流程步骤</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <span class="art-badge">本周热追</span>
+        <div class="art-screen">
+          <svg viewBox="0 0 420 260" width="100%" role="img" aria-label="剧集播放界面示意图">
+            <defs>
+              <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#233047"/>
+                <stop offset="1" stop-color="#0e1620"/>
+              </linearGradient>
+            </defs>
+            <rect width="420" height="260" fill="url(#scr)"/>
+            <circle cx="330" cy="52" r="70" fill="#f5b83d" opacity="0.08"/>
+            <circle cx="70" cy="210" r="90" fill="#588cff" opacity="0.07"/>
+            <rect x="28" y="168" width="210" height="9" rx="4.5" fill="#3a4a60"/>
+            <rect x="28" y="168" width="128" height="9" rx="4.5" fill="#f5b83d"/>
+            <rect x="28" y="192" width="150" height="7" rx="3.5" fill="#2b3849"/>
+            <circle cx="210" cy="96" r="34" fill="rgba(245,184,61,.16)" stroke="#f5b83d" stroke-width="2"/>
+            <path d="M201 82l22 14-22 14z" fill="#f5b83d"/>
+            <rect x="286" y="150" width="106" height="60" rx="9" fill="#1b2534" stroke="#31404f"/>
+            <rect x="298" y="164" width="60" height="6" rx="3" fill="#f5b83d"/>
+            <rect x="298" y="178" width="80" height="5" rx="2.5" fill="#3a4a60"/>
+            <rect x="298" y="190" width="46" height="5" rx="2.5" fill="#3a4a60"/>
+          </svg>
+        </div>
+        <div class="art-caption">
+          <span>播放界面示意</span>
+          <b>美剧网 · 追剧清单</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANKING -->
+  <section class="section" id="ranking">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Ranking</div>
+        <h2>美剧排行榜：按维度挑选下一部剧</h2>
+        <p>榜单不是单一热度列表，而是按不同需求拆成几个方向。看榜之前先想清楚自己想解决什么问题，选剧的效率会高很多。</p>
+      </div>
+      <div class="rank-list">
+        <article class="rank-item">
+          <div class="rank-no">01</div>
+          <div class="rank-body">
+            <h3>口碑优先榜</h3>
+            <p>适合不想踩雷的观众。以剧评与观众讨论度为线索，优先关注剧本完整、节奏稳定的作品，再决定是否投入整季时间。</p>
+            <span class="rank-meta">适合：首次接触美剧</span>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">02</div>
+          <div class="rank-body">
+            <h3>新剧上线榜</h3>
+            <p>关注当季新开播剧集，按播出时间排列。新剧信息变动快，建议以官方平台的上线公告为准，本站只做入口整理。</p>
+            <span class="rank-meta">适合：追新不追旧</span>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">03</div>
+          <div class="rank-body">
+            <h3>类型精选榜</h3>
+            <p>按犯罪、科幻、医疗、律政、喜剧、悬疑六类划分，每类给出选剧思路，方便按心情和空闲时长匹配剧集长度。</p>
+            <span class="rank-meta">适合：有明确偏好</span>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">04</div>
+          <div class="rank-body">
+            <h3>完结补剧榜</h3>
+            <p>面向喜欢一口气看完的观众。已完结剧集不必等更新，适合长假集中观看，也能避免追更中断带来的剧情断层。</p>
+            <span class="rank-meta">适合：假期集中观看</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="section section-alt" id="catalog">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Catalog</div>
+        <h2>追剧导航：六个常见类型的入口</h2>
+        <p>类型是美剧网最实用的筛选维度。先确定类型，再看单集时长与季数，能明显减少选剧时的犹豫。</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7z" stroke="#f5b83d" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>犯罪与律政</h3>
+          <p>单元剧居多，单集信息量集中，适合碎片时间观看。跨集主线通常出现在季末，追更时留意剧情伏笔。</p>
+          <a class="card-link" href="#ranking">相关榜单 →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3.2" stroke="#f5b83d" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="#f5b83d" stroke-width="1.5"/></svg>
+          </div>
+          <h3>科幻与奇幻</h3>
+          <p>世界观设定较重，建议从第一季按顺序观看。部分剧集前两集节奏偏慢，属于铺垫阶段，不必急着弃剧。</p>
+          <a class="card-link" href="#ranking">相关榜单 →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.4-7 10-7 10z" stroke="#f5b83d" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>医疗与职场</h3>
+          <p>专业术语多，字幕质量影响理解。选择字幕版本时优先完整译本，避免术语误译造成剧情理解偏差。</p>
+          <a class="card-link" href="#guide">观看建议 →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3" stroke="#f5b83d" stroke-width="1.8"/><path d="M10 10.5l4.5 2.5L10 15.5z" fill="#f5b83d"/></svg>
+          </div>
+          <h3>情景喜剧</h3>
+          <p>单集二十余分钟，适合睡前或通勤观看。多数剧集前后关联不强，可以从任意一季进入，再回头补前情。</p>
+          <a class="card-link" href="#ranking">相关榜单 →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="#f5b83d" stroke-width="1.8"/><path d="M16 16l4 4" stroke="#f5b83d" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>悬疑与惊悚</h3>
+          <p>线索密集，建议连看两到三集再判断走向。观看时关闭弹窗类干扰，更容易抓住画面中的细节提示。</p>
+          <a class="card-link" href="#guide">观看建议 →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V8" stroke="#f5b83d" stroke-width="1.9" stroke-linecap="round"/></svg>
+          </div>
+          <h3>历史与传记</h3>
+          <p>背景知识直接影响观感。观看前花十分钟了解时代背景，人物关系会清楚很多，也能分辨戏剧化改编部分。</p>
+          <a class="card-link" href="#guide">观看建议 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="section" id="guide">
+    <div class="wrap">
+      <div class="guide">
+        <div class="guide-text">
+          <div class="kicker" style="font-size:13px;color:var(--gold);font-weight:600;letter-spacing:2px;margin-bottom:8px;">Guide</div>
+          <h2>美剧网观看指南：从选剧到追完</h2>
+          <p>美剧的播出机制与国产剧差别较大：一季通常十几到二十多集，中间可能插入停更周，季与季之间相隔一年以上也不罕见。因此在美剧网安排观看计划时，<strong>先确认剧集状态</strong>比急着开播更重要。</p>
+          <p>另一件值得留意的事是版本。同一部剧可能存在不同剪辑长度与字幕版本，<strong>尽量在同一版本内连续观看</strong>，避免时间轴和台词对不上。若剧集有衍生剧或联动集，建议按播出顺序补看，剧情衔接会更顺。</p>
+          <p>至于资源入口，美剧网只做信息整合与入口指引，具体播放与版权归属以对应平台为准。遇到无法访问的入口，换一个平台检索往往比反复刷新更有效。</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="n">1</span>
+            <div><h4>确认剧集状态</h4><p>在播、已续订还是已完结，直接决定你能否一口气看完。</p></div>
+          </div>
+          <div class="step">
+            <span class="n">2</span>
+            <div><h4>看清季数与集数</h4><p>评估总时长，避免开播才发现时间投入超出预期。</p></div>
+          </div>
+          <div class="step">
+            <span class="n">3</span>
+            <div><h4>核对播出时间表</h4><p>记录每周更新日，停更周提前知道，减少空等。</p></div>
+          </div>
+          <div class="step">
+            <span class="n">4</span>
+            <div><h4>选定字幕版本</h4><p>同一版本连续观看，术语与人名译法保持一致。</p></div>
+          </div>
+          <div class="step">
+            <span class="n">5</span>
+            <div><h4>建立个人追剧清单</h4><p>把在追、想追、已看完三类分开，进度一目了然。</p></div>
+          </div>
+          <div class="step">
+            <span class="n">6</span>
+            <div><h4>按类型扩展片单</h4><p>看完一部后回到类型导航，找同类型作品继续。</p></div>
+          </div>
+          <div class="step">
+            <span class="n">7</span>
+            <div><h4>关注续订与完结消息</h4><p>剧集被砍或续订会改变观看计划，及时调整清单。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="section section-alt" id="download">
+    <div class="wrap">
+      <div class="download-panel">
+        <div>
+          <h2>美剧网追剧清单模板</h2>
+          <p>一份可打印的追剧清单，包含剧名、季数进度、更新日与字幕版本四栏，适合贴在书桌旁或存进笔记软件，用来管理同时追的多部剧。</p>
+          <div class="dl-note">模板为离线文件，下载后可直接编辑填写。</div>
+        </div>
+        <a class="dl-btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8m0 0l3-3m-3 3L5 7M3 13h10" stroke="#1a1305" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">FAQ</div>
+        <h2>关于美剧网的常见问题</h2>
+        <p>以下是访问者最常提出的几个问题，回答范围仅限本页提供的信息与服务。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>美剧网提供在线播放吗？</summary>
+          <p>美剧网是信息导航型首页，整理榜单、类型入口与观看指引，播放与版权归属以对应视频平台为准。页面中的入口用于帮助你定位剧集信息，而非提供片源。</p>
+        </details>
+        <details>
+          <summary>排行榜的依据是什么？</summary>
+          <p>榜单按观看需求划分维度，如口碑、新剧上线、类型与完结补剧，属于选剧思路整理，不代表统一评分。具体剧集表现请以各平台公开数据为准。</p>
+        </details>
+        <details>
+          <summary>找不到想看的剧怎么办？</summary>
+          <p>先按类型导航缩小范围，再核对剧名英文原名。部分剧集中文译名不统一，用原名检索命中率更高，也能避免同名剧混淆。</p>
+        </details>
+        <details>
+          <summary>追剧清单模板怎么用？</summary>
+          <p>模板包含剧名、季数进度、更新日与字幕版本四栏。每开始一部新剧就新增一行，每周更新后记录进度，能清楚看到自己在追几部剧。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text">美剧网</span>
+        <p>美剧网专注于美剧信息的整理与追剧路径的搭建，提供排行榜、类型导航与观看指南，帮助访问者更高效地找到想看的剧集。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>内容</h5>
+          <a href="#ranking">美剧排行榜</a>
+          <a href="#catalog">追剧导航</a>
+          <a href="#guide">观看指南</a>
+        </div>
+        <div class="footer-col">
+          <h5>服务</h5>
+          <a href="#download">清单下载</a>
+          <a href="#faq">常见问题</a>
+          <a href="#top">返回顶部</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2024 美剧网 · 剧集信息与榜单持续整理中</span>
+      <span>本站内容为信息导航，片源版权归原平台所有</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+      </html>
