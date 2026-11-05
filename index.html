@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑料-黑料网事件归档_黑料吃瓜与网络热点记录</title>
+<meta name="description" content="黑料是一个记录网络热点与争议事件的信息归档页，按时间线整理黑料相关话题的起因、公开信息与后续进展，帮助读者快速了解事件脉络与可查证的公开来源。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314181f'/%3E%3Cpath d='M18 20h28v6H18zM18 30h20v6H18zM18 40h24v6H18z' fill='%23e8552f'/%3E%3Ccircle cx='48' cy='44' r='7' fill='%23f0b429'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#14181f;
+  --ink-2:#2b323d;
+  --muted:#5d6673;
+  --line:#e3e0da;
+  --paper:#f7f5f0;
+  --card:#ffffff;
+  --accent:#e8552f;
+  --accent-soft:#fdece6;
+  --gold:#f0b429;
+  --radius:14px;
+  --wrap:1120px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 22px;}
+.eyebrow{
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;
+}
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(247,245,240,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;gap:26px;
+  min-height:66px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.brand-mark{width:34px;height:34px;}
+.brand-text{
+  font-size:19px;font-weight:800;letter-spacing:.04em;color:var(--ink);
+}
+.nav{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap;}
+.nav a{
+  font-size:14.5px;color:var(--ink-2);padding:4px 0;
+  border-bottom:2px solid transparent;transition:.2s;
+}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+.nav-cta{
+  font-size:14px;font-weight:700;color:#fff;background:var(--ink);
+  padding:8px 16px;border-radius:999px;flex-shrink:0;
+}
+.nav-cta:hover{background:var(--accent);}
+/* ---------- hero ---------- */
+.hero{
+  padding:54px 0 46px;
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;
+}
+h1{
+  font-size:clamp(40px,6vw,62px);
+  line-height:1.08;margin:14px 0 18px;letter-spacing:.02em;font-weight:900;
+}
+.hero-lead{
+  font-size:16.5px;color:var(--ink-2);max-width:34em;margin:0 0 12px;
+}
+.hero-sub{
+  font-size:14.5px;color:var(--muted);max-width:34em;margin:0 0 26px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:700;padding:12px 22px;border-radius:999px;
+  transition:.2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#c9431f;}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink);}
+.btn-ghost:hover{border-color:var(--ink);}
+.hero-figure{
+  background:var(--card);border:1px solid var(--line);border-radius:22px;
+  padding:20px;box-shadow:0 18px 40px -28px rgba(20,24,31,.5);
+}
+.hero-figure figcaption{
+  font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center;
+}
+/* ---------- stat strip ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;margin:0 0 0;
+}
+.stat{background:var(--card);padding:18px 20px;}
+.stat b{display:block;font-size:26px;font-weight:900;line-height:1.2;}
+.stat span{font-size:13px;color:var(--muted);}
+/* ---------- sections ---------- */
+section{padding:52px 0;}
+.sec-head{max-width:46em;margin-bottom:30px;}
+h2{
+  font-size:clamp(23px,3vw,29px);line-height:1.3;font-weight:800;
+  margin:10px 0 12px;
+}
+.sec-head p{margin:0;color:var(--ink-2);font-size:15.5px;}
+/* timeline cards */
+.timeline{display:grid;gap:16px;}
+.tl-item{
+  display:grid;grid-template-columns:112px 1fr;gap:22px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;
+}
+.tl-date{
+  font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.04em;
+  border-left:3px solid var(--gold);padding-left:12px;line-height:1.5;
+}
+.tl-date em{display:block;font-style:normal;color:var(--muted);font-weight:500;font-size:12px;}
+.tl-body h3{font-size:17px;margin:0 0 6px;font-weight:800;}
+.tl-body p{margin:0;font-size:14.8px;color:var(--ink-2);}
+.tl-tag{
+  display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);
+  background:var(--accent-soft);padding:2px 9px;border-radius:999px;margin-top:10px;
+}
+/* topic grid */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;display:flex;flex-direction:column;gap:8px;
+  transition:.22s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -22px rgba(20,24,31,.55);}
+.card-icon{width:38px;height:38px;margin-bottom:4px;}
+.card h3{font-size:16.5px;margin:0;font-weight:800;}
+.card p{margin:0;font-size:14.4px;color:var(--ink-2);}
+.card .meta{font-size:12.5px;color:var(--muted);margin-top:auto;padding-top:10px;}
+/* method / list */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
+.rule-list{list-style:none;margin:0;padding:0;display:grid;gap:14px;}
+.rule-list li{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;display:grid;grid-template-columns:26px 1fr;gap:12px;
+}
+.rule-list .num{
+  font-size:13px;font-weight:900;color:#fff;background:var(--ink);
+  width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+}
+.rule-list b{display:block;font-size:15px;}
+.rule-list span{font-size:14px;color:var(--ink-2);}
+.prose p{font-size:15px;color:var(--ink-2);margin:0 0 14px;}
+.prose strong{color:var(--ink);}
+.pull{
+  border-left:3px solid var(--accent);background:var(--card);
+  border-radius:0 var(--radius) var(--radius) 0;padding:14px 18px;
+  font-size:14.5px;color:var(--ink-2);margin:18px 0 0;
+}
+/* faq */
+.faq{display:grid;gap:10px;}
+details{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 20px;
+}
+details[open]{border-color:#cfcac1;}
+summary{
+  cursor:pointer;font-weight:800;font-size:15.5px;list-style:none;
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";color:var(--accent);font-weight:900;font-size:19px;}
+details[open] summary::after{content:"–";}
+details p{margin:10px 0 0;font-size:14.5px;color:var(--ink-2);}
+/* cta band */
+.band{
+  background:var(--ink);color:#f2efe9;border-radius:22px;
+  padding:38px 34px;display:flex;flex-wrap:wrap;gap:24px;
+  align-items:center;justify-content:space-between;
+}
+.band h2{color:#fff;margin:0 0 8px;}
+.band p{margin:0;font-size:14.8px;color:#c8c3ba;max-width:36em;}
+.band .btn-primary{flex-shrink:0;}
+/* footer */
+.site-footer{
+  border-top:1px solid var(--line);padding:34px 0 44px;margin-top:10px;
+}
+.foot-grid{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start;}
+.foot-brand{max-width:26em;}
+.foot-brand p{font-size:13.5px;color:var(--muted);margin:10px 0 0;}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:13.8px;color:var(--ink-2);}
+.foot-links a:hover{color:var(--accent);}
+.copyright{
+  font-size:12.5px;color:var(--muted);margin-top:26px;padding-top:18px;
+  border-top:1px solid var(--line);
+}
+/* responsive */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px;}
+  .hero-figure{order:-1;}
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .split{grid-template-columns:1fr;gap:26px;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .nav{display:none;}
+}
+@media(max-width:640px){
+  body{font-size:15.5px;}
+  .hero{padding:34px 0 34px;}
+  section{padding:38px 0;}
+  .grid-3{grid-template-columns:1fr;}
+  .tl-item{grid-template-columns:1fr;gap:10px;padding:18px;}
+  .tl-date{border-left:none;border-top:3px solid var(--gold);padding:8px 0 0;}
+  .band{padding:28px 22px;}
+  .header-inner{gap:14px;}
+  .nav-cta{padding:7px 14px;font-size:13px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="黑料 首页">
+      <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#14181f"/>
+        <path d="M16 19h32v6H16zM16 29h22v6H16zM16 39h26v6H16z" fill="#e8552f"/>
+        <circle cx="49" cy="45" r="7" fill="#f0b429"/>
+      </svg>
+      <span class="brand-text">黑料</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#timeline">事件时间线</a>
+      <a href="#topics">话题分类</a>
+      <a href="#method">归档方法</a>
+      <a href="#faq">常见疑问</a>
+    </nav>
+    <a class="nav-cta" href="#topics">浏览归档</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">网络热点 · 公开信息归档</p>
+        <h1>黑料</h1>
+        <p class="hero-lead">
+          黑料是一个按时间线整理网络争议话题的归档页：把事件的起因、公开流传的信息、当事方回应与后续进展放在同一处，方便读者对照时间顺序理解来龙去脉。
+        </p>
+        <p class="hero-sub">
+          我们不生产素材，也不对未经证实的说法下结论。每一条目只保留可追溯的公开出处，并标注信息状态——已确认、存在争议或仍待核实。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#timeline">查看事件时间线</a>
+          <a class="btn btn-ghost" href="#method">了解归档标准</a>
+        </div>
+      </div>
+      <figure class="hero-figure" style="margin:0">
+        <svg viewBox="0 0 420 260" role="img" aria-label="黑料归档时间线示意图">
+          <rect width="420" height="260" rx="16" fill="#f7f5f0"/>
+          <line x1="52" y1="34" x2="52" y2="226" stroke="#e3e0da" stroke-width="3"/>
+          <circle cx="52" cy="58" r="7" fill="#e8552f"/>
+          <rect x="76" y="44" width="150" height="10" rx="5" fill="#14181f"/>
+          <rect x="76" y="62" width="230" height="8" rx="4" fill="#cfcac1"/>
+          <circle cx="52" cy="116" r="7" fill="#f0b429"/>
+          <rect x="76" y="102" width="120" height="10" rx="5" fill="#14181f"/>
+          <rect x="76" y="120" width="260" height="8" rx="4" fill="#cfcac1"/>
+          <rect x="76" y="134" width="190" height="8" rx="4" fill="#e3e0da"/>
+          <circle cx="52" cy="182" r="7" fill="#8d949f"/>
+          <rect x="76" y="168" width="180" height="10" rx="5" fill="#14181f"/>
+          <rect x="76" y="186" width="240" height="8" rx="4" fill="#cfcac1"/>
+          <rect x="270" y="196" width="98" height="34" rx="17" fill="#fdece6"/>
+          <text x="319" y="218" font-size="13" font-weight="700" fill="#e8552f" text-anchor="middle" font-family="sans-serif">待核实</text>
+        </svg>
+        <figcaption>条目结构示意：时间节点 → 公开信息 → 状态标注</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="wrap" style="padding-top:26px">
+    <div class="stats">
+      <div class="stat"><b>按时间</b><span>以发生顺序排列，避免前后颠倒</span></div>
+      <div class="stat"><b>可追溯</b><span>保留原始发布渠道与日期</span></div>
+      <div class="stat"><b>标状态</b><span>确认 / 争议 / 待核实三档</span></div>
+      <div class="stat"><b>可更正</b><span>新证据出现即更新条目</span></div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">时间线</p>
+        <h2>黑料事件条目如何组织</h2>
+        <p>一条黑料话题通常经历“爆料出现—扩散传播—当事方回应—结果沉淀”几个阶段。下面的示例条目展示归档页的书写顺序，具体事由以公开报道为准。</p>
+      </div>
+      <div class="timeline">
+        <article class="tl-item">
+          <div class="tl-date">第一阶段<em>爆料出现</em></div>
+          <div class="tl-body">
+            <h3>原始出处与发布时间</h3>
+            <p>记录最早出现的平台、账号类型与发布时刻，并注明该内容当时是否附带截图、录音等材料。缺少原始出处的转述，一律不计入黑料条目的起点。</p>
+            <span class="tl-tag">状态：待核实</span>
+          </div>
+        </article>
+        <article class="tl-item">
+          <div class="tl-date">第二阶段<em>扩散传播</em></div>
+          <div class="tl-body">
+            <h3>二次传播中的信息变化</h3>
+            <p>同一说法在转发中常被剪裁、拼接或添加标题。归档时并列原始表述与流传版本，标出两者的差异，避免把加工后的内容当作原始黑料信息。</p>
+            <span class="tl-tag">状态：存在争议</span>
+          </div>
+        </article>
+        <article class="tl-item">
+          <div class="tl-date">第三阶段<em>当事方回应</em></div>
+          <div class="tl-body">
+            <h3>回应渠道与回应内容</h3>
+            <p>优先收录当事方通过官方账号、律师声明或公开采访给出的正式回应，并注明回应时间。未获回应的条目保持“待核实”，不作推断性描述。</p>
+            <span class="tl-tag">状态：更新中</span>
+          </div>
+        </article>
+        <article class="tl-item">
+          <div class="tl-date">第四阶段<em>结果沉淀</em></div>
+          <div class="tl-body">
+            <h3>可查证的结论与后续</h3>
+            <p>若事件进入平台处置、监管通报或司法程序，条目补入对应公开文书或公告的日期与要点，使黑料话题的收尾有据可循，而非停留在传言层面。</p>
+            <span class="tl-tag">状态：已确认</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">话题分类</p>
+        <h2>常见黑料话题的四种类型</h2>
+        <p>不同类型的争议，核实路径差别很大。分类的目的不是给事件贴标签，而是让读者知道该去核对什么材料。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#fdece6"/><path d="M11 13h18v4H11zM11 20h13v4H11zM11 27h16v4H11z" fill="#e8552f"/></svg>
+          <h3>公众人物言行争议</h3>
+          <p>围绕公开发言、旧帖截图或活动表现的讨论。核实重点是原始发布语境与是否经过剪辑，回应通常来自本人或其工作室。</p>
+          <p class="meta">核对材料：原帖、完整视频、官方声明</p>
+        </article>
+        <article class="card">
+          <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#fef6e0"/><circle cx="20" cy="20" r="10" fill="none" stroke="#b8860b" stroke-width="3"/><path d="M20 13v7l5 3" stroke="#b8860b" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          <h3>商业纠纷与品牌事件</h3>
+          <p>涉及合同、宣传口径或产品问题的曝光。归档时并列监管公告、企业公告与消费者反馈，区分已认定事实与单方指控。</p>
+          <p class="meta">核对材料：公告、通报、裁判文书</p>
+        </article>
+        <article class="card">
+          <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#eaf0f6"/><path d="M12 26l6-8 4 5 3-4 4 7z" fill="#4a6480"/><circle cx="15" cy="14" r="3" fill="#4a6480"/></svg>
+          <h3>网络传言与截图风波</h3>
+          <p>聊天记录、图片拼接类内容的传播。此类黑料信息往往缺少出处，归档时只记录其流传范围与辟谣情况，不对内容真伪下判定。</p>
+          <p class="meta">核对材料：辟谣公告、平台处置说明</p>
+        </article>
+        <article class="card">
+          <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#f0f0ec"/><path d="M13 14h14v4H13zM13 21h9v4h-9zM13 28h12v4H13z" fill="#5d6673"/><circle cx="29" cy="26" r="4" fill="#e8552f"/></svg>
+          <h3>旧事重提与二次发酵</h3>
+          <p>数年前的话题被重新翻出，容易与当下语境混在一起。条目按“原事件时间”和“再次传播时间”分列，避免时间线错位。</p>
+          <p class="meta">核对材料：初次报道日期、重提节点</p>
+        </article>
+        <article class="card">
+          <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#fdece6"/><path d="M20 10l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#e8552f"/></svg>
+          <h3>当事人澄清与反驳</h3>
+          <p>被指涉一方的举证与说明。归档将澄清内容与原指控并排呈现，读者可自行比对两方材料的时间先后与证据形式。</p>
+          <p class="meta">核对材料：澄清全文、佐证文件</p>
+        </article>
+        <article class="card">
+          <svg class="card-icon" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#eef4ee"/><path d="M14 20l4 4 8-9" fill="none" stroke="#3d7a4a" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>已澄清与已处置条目</h3>
+          <p>结论明确的话题单独归入此类，保留最终通报与更正说明。即便热度退去，条目仍留在归档中，供后来者查证。</p>
+          <p class="meta">核对材料：最终公告、更正记录</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head" style="margin-bottom:22px">
+          <p class="eyebrow">归档方法</p>
+          <h2>我们如何判断一条黑料信息能否收录</h2>
+        </div>
+        <ul class="rule-list">
+          <li><span class="num">1</span><div><b>先找出处，再谈内容</b><span>没有可指认的原始发布渠道，条目只登记“流传情况”，不列入事件时间线。</span></div></li>
+          <li><span class="num">2</span><div><b>指控与回应成对收录</b><span>单方面材料不单独成条。当事方回应未出现时，明确标注“暂无公开回应”。</span></div></li>
+          <li><span class="num">3</span><div><b>状态标注不越界</b><span>“已确认”仅用于有公开通报或文书支撑的部分，其余归入“存在争议”或“待核实”。</span></div></li>
+          <li><span class="num">4</span><div><b>更新留痕</b><span>每次修订记录日期与修改点，旧版本说明保留在条目末尾，便于读者对照。</span></div></li>
+        </ul>
+      </div>
+      <div class="prose">
+        <p>
+          网络上的<strong>黑料</strong>内容常常以片段形式出现：一张截图、一段几秒的录音、一句没有上下文的转述。把这些片段直接当作结论，最容易造成误伤。归档页做的第一件事，是把片段的来源、时间与完整语境补齐。
+        </p>
+        <p>
+          第二件事是区分“有人这样说”和“事情是这样”。前者属于传播事实，可以记录；后者需要证据支撑，不能凭数量或情绪判断。很多黑料话题之所以反复反转，正是因为这两层被混在一起。
+        </p>
+        <p>
+          第三件事是给条目留下修正空间。早期信息不完整是常态，条目页会标注最后更新日期；当新的公开材料出现，原表述会被替换并注明改动，而不是悄悄删除。
+        </p>
+        <p class="pull">
+          阅读黑料条目时，先看状态标签，再看时间顺序，最后才看具体描述——这个顺序能减少大部分误读。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">常见疑问</p>
+        <h2>关于黑料归档的几个问题</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>归档页会给出“谁对谁错”的结论吗？</summary>
+          <p>不会。条目只呈现公开材料与各方回应，状态标签说明证据充分程度，判断留给读者。涉及法律程序的部分，以公开文书表述为准。</p>
+        </details>
+        <details>
+          <summary>为什么有些黑料话题只写了几行？</summary>
+          <p>可核实的公开材料有限时，条目保持简短，并标注“待核实”。宁可少写，也不补写没有出处的细节。</p>
+        </details>
+        <details>
+          <summary>发现条目信息有误怎么办？</summary>
+          <p>可在条目页底部反馈入口提交对应公开出处。核实后条目会更新，并在修订记录中写明修改日期与内容。</p>
+        </details>
+        <details>
+          <summary>旧话题还会继续维护吗？</summary>
+          <p>会。已澄清或已处置的黑料条目不下架，后续如有新进展，按时间追加，原有内容保持不变以便对照。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h2>从时间线开始读一条黑料</h2>
+          <p>先看事件起点与状态标签，再逐条对照公开材料。归档页不追求热度排序，只保证脉络可查、出处可追。</p>
+        </div>
+        <a class="btn btn-primary" href="#timeline">进入时间线</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#14181f"/>
+            <path d="M16 19h32v6H16zM16 29h22v6H16zM16 39h26v6H16z" fill="#e8552f"/>
+            <circle cx="49" cy="45" r="7" fill="#f0b429"/>
+          </svg>
+          <span class="brand-text">黑料</span>
+        </a>
+        <p>黑料是一个记录网络争议话题的公开信息归档页，按时间线整理事件起因、传播过程与当事方回应，并为每条信息标注核实状态。</p>
+      </div>
+      <nav class="foot-links" aria-label="页尾导航">
+        <a href="#timeline">事件时间线</a>
+        <a href="#topics">话题分类</a>
+        <a href="#method">归档方法</a>
+        <a href="#faq">常见疑问</a>
+      </nav>
+    </div>
+    <p class="copyright">© 2025 黑料 · 内容以公开信息为限，状态标注随核实进展更新。</p>
+  </div>
+</footer>
+
+</body>
+  </html>
